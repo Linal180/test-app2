@@ -1,0 +1,13 @@
+
+
+<div class="course">
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= @course.short_name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @course.name %></h6>
+            <p class="card-text"><%= @course.description %></p>
+            <%= link_to 'Enroll', '#', class: "card-link" %>
+            <%= link_to 'Info', '#', class: "card-link" %>
+        </div>
+    </div>
+</div>
