@@ -12,20 +12,20 @@
           <%= link_to 'Home', root_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Students", '#', class: 'nav-link' %>
+          <%= link_to "Students", students_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to "Courses", courses_path, class: 'nav-link' %>
       </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= fa_icon 'user' %> <%= current_user.full_name %>
+            <%= fa_icon 'user' %> <%= current_user.full_name if current_user %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
               <%= fa_icon 'edit' %> Edit Profile
             <% end %>
-            <a class="dropdown-item" href="#">abc</a>
+            <%= link_to 'My Courses', my_courses_path,class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>

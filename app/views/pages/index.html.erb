@@ -1,1 +1,22 @@
-<h1>Welcome to Home Page</h1>
+<h1 align="center">Student Directory</h1>
+
+
+<% @students.each do |student|%>
+    <div class="course">
+        <div class="card" style="width: 28rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= student.full_name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= student.email =%></h6>
+                <p class="card-text"> Course Enrollments: 
+                    <% student.courses.each do |course| %>
+                        <ul>
+                            <li><%= course.name %></li>
+                        </ul>
+                    <% end %>
+
+                </p>
+                <%= link_to 'View Profile', student_profile_path(student_id: student.id), class: "card-link" %>
+            </div>
+        </div>
+    </div>
+<% end %>

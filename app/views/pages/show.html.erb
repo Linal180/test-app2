@@ -1,0 +1,20 @@
+<h1 align="center"><%= @student.full_name %></h1>
+
+<div class="course">
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+            <h5 class="card-title">Email: <%= @student.email %></h5>
+            <p class="card-text">Course Enrollments: 
+                <% @student.courses.each do |course| %>
+                    <ul>
+                        <li><%= course.name %></li>
+                    </ul>
+                <% end %>
+
+            </p>
+            <% if current_user.id == @student.id %>
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: "card-link" %>
+            <% end %>
+            </div>
+    </div>
+</div>

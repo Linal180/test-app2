@@ -14,6 +14,16 @@ class CoursesController < ApplicationController
         
     end 
 
+    def my_courses
+        @student_courses = StudentCourse.where(user:current_user)
+        @my_courses = []
+        @student_courses.each do |rel|
+            course = Course.find(rel.course_id)
+            @my_courses.push(course)
+        end
+        
+    end
+
     def create 
         @course = Course.new(course_params)
         if @course && @course.save
@@ -24,6 +34,8 @@ class CoursesController < ApplicationController
             render 'new'
         end
     end 
+
+    
 
     private
 
