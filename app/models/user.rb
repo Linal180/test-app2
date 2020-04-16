@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   
   def full_name
-    return email
+    return "#{first_name} #{last_name}" if first_name || last_name
     'Anonymous'
   end 
 
